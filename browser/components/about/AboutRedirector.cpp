@@ -80,6 +80,10 @@ static RedirEntry kRedirMap[] = {
     nsIAboutModule::ALLOW_SCRIPT },
   { "preferences", "chrome://browser/content/preferences/in-content/preferences.xul",
     nsIAboutModule::ALLOW_SCRIPT },
+#ifdef MOZ_SERVICES_HEALTHREPORT_UI
+  { "healthreport", "chrome://browser/content/abouthealthreport/abouthealth.xhtml",
+    nsIAboutModule::ALLOW_SCRIPT },
+#endif
 };
 static const int kRedirTotal = NS_ARRAY_LENGTH(kRedirMap);
 

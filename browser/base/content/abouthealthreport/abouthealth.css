@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: window;
+  background-image: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 160px), -moz-linear-gradient(-moz-dialog, window 10px);
+  color: windowtext;
+  font: message-box;
+  overflow: hidden;
+}
+
+#about-header {
+  padding: 14px 26px;
+  min-width: 748px;
+}
+
+#content {
+  background-color: -moz-field;
+  padding: 10px;
+}
+
+
+#state-intro {
+  height: 60px;
+}
+
+#settings-controls {
+  padding-top: 15px;
+}
+
+#opt-inout-container {
+  padding-top: 15px;
+}
+
+#data-view {
+  padding-top: 15px;
+}
+
+#raw-data {
+  padding-top: 20px;
+}

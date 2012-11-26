@@ -1,0 +1,28 @@
+<!-- metrics.locale-direction instead of the usual local.dir entity, so RTL can skip translating page. -->
+<!ENTITY abouthealth.locale-direction "ltr">
+
+<!ENTITY abouthealth.pagetitle "about:health">
+<!ENTITY abouthealth.header "&brandFullName; Health Dashboard">
+
+<!ENTITY abouthealth.intro-enabled "With your permission, &brandFullName; collects some data about your computer and usage. You can find more information about your rights when using &brandShortName; ">
+<!ENTITY abouthealth.intro-disabled "Since we do not have your permission, &brandFullName; will not collect data about your computer and usage. You can opt back in and help us make &brandShortName; better by clicking the &quot;&abouthealth.optin;&quot; box below.  You can find more information about your rights when using &brandShortName; ">
+<!ENTITY abouthealth.intro-link "here">
+<!ENTITY abouthealth.intro-end-enabled ".">
+<!ENTITY abouthealth.intro-end-disabled ".">
+
+<!ENTITY abouthealth.current-status "Current Status">
+
+<!ENTITY abouthealth.submission_enabled "Anonymous data submission enabled">
+<!ENTITY abouthealth.server_data_stored "Data stored on remote server">
+
+<!ENTITY abouthealth.optin "Submit data periodically">
+<!ENTITY abouthealth.optout "Stop submitting data">
+
+<!ENTITY abouthealth.optout.slideout.title "Stop data submission?">
+<!ENTITY abouthealth.optout.slideout.message "Are you sure you want to opt out and delete all your anonymous product data stored on Mozilla servers?">
+
+<!ENTITY abouthealth.submitted-data "submitted data.">
+<!ENTITY abouthealth.show-raw-data "Show">
+<!ENTITY abouthealth.hide-raw-data "Hide">
+
+<!ENTITY abouthealth.no-data-available "There is no previous submission to display. Please wait a little and check back later.">

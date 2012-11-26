@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<!DOCTYPE html [
+  <!ENTITY % htmlDTD PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+  %htmlDTD;
+  <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
+  %brandDTD;
+  <!ENTITY % securityPrefsDTD SYSTEM "chrome://browser/locale/preferences/security.dtd">
+  %securityPrefsDTD;
+  <!ENTITY % aboutHealthReportDTD SYSTEM "chrome://browser/locale/aboutHealthReport.dtd">
+  %aboutHealthReportDTD;
+]>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+   <title>&abouthealth.pagetitle;</title>
+   <link rel="stylesheet"
+     href="chrome://browser/content/abouthealthreport/abouthealth.css"
+     type="text/css" />
+   <script type="text/javascript;version=1.8"
+     src="chrome://browser/content/abouthealthreport/abouthealth.js" />
+  </head>
+  <body dir="&abouthealth.locale-direction;" class="aboutPageWideContainer" onload="init();">
+    <div id="about-header">
+      <h1>&abouthealth.header;</h1>
+    </div>
+
+    <div id="content">
+      <div id="state-intro">
+        <p id="intro-enabled">&abouthealth.intro-enabled;<a href="about:rights">&abouthealth.intro-link;</a>&abouthealth.intro-end-enabled;</p>
+        <p id="intro-disabled">&abouthealth.intro-disabled;<a href="about:rights">&abouthealth.intro-link;</a>&abouthealth.intro-end-disabled;</p>
+      </div>
+
+      <h3>&abouthealth.current-status;</h3>
+      <div id="settings-controls">
+        <div>
+          <input type="checkbox" disabled="true" id="checkbox-submission-enabled" name="checkbox-submission-enabled" />
+          <label for="checkbox-submission-enabled">&abouthealth.submission_enabled;</label>
+        </div>
+        <div>
+          <input type="checkbox" disabled="true" id="checkbox-server-data-stored" name="checkbox-server-data-stored" />
+          <label for="checkbox-server-data-stored">&abouthealth.server_data_stored;</label>
+        </div>
+        <div id="opt-inout-container">
+          <button id="btn-optin" onclick="onOptInClick();">&abouthealth.optin;</button>
+          <button id="btn-optout" onclick="onOptOutClick();">&abouthealth.optout;</button>
+        </div>
+      </div>
+
+      <div id="data-view">
+        <p id="data-show"><a href="" onclick="onShowRawDataClick">&abouthealth.show-raw-data;</a> &abouthealth.submitted-data;</p>
+        <p id="data-hide"><a href="" onclick="onHideRawDataClick">&abouthealth.hide-raw-data;</a> &abouthealth.submitted-data;</p>
+        <p id="data-no-data">&abouthealth.no-data-available;</p>
+        <pre id="raw-data" style="display: none"></pre>
+      </div>
+    </div>
+
+    <input type="hidden" id="optout-slideout"
+      slideout_title="&abouthealth.optout.slideout.title;"
+      slideout_message="&abouthealth.optout.slideout.message;"
+    />
+  </body>
+</html>
+
