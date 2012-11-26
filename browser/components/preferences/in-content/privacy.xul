@@ -64,6 +64,11 @@
               instantApply="true"
               type="bool"/>
 
+  <!-- Reporting -->
+  <preference id="toolkit.telemetry.enabled"
+              name="toolkit.telemetry.enabled"
+              type="bool"/>
+
 </preferences>
 
 <hbox class="heading" data-category="panePrivacy" hidden="true">
@@ -221,3 +226,21 @@
     <label>&locbar.post.label;</label>
   </hbox>
 </groupbox>
+
+<groupbox id="reportingGroup" data-category="panePrivacy" hidden="true">
+  <caption label="&reporting.label;"/>
+
+#ifdef MOZ_CRASHREPORTER
+  <checkbox id="submitCrashesBox"
+            flex="1"
+            oncommand="gPrivacyPane.updateSubmitCrashes();"
+            label="&crashReports.label;"
+            accesskey="&crashReports.accesskey;"/>
+#endif
+  <checkbox id="submitTelemetryBox"
+            flex="1"
+            preference="toolkit.telemetry.enabled"
+            label="&performanceData.label;"
+            accesskey="&performanceData.accesskey;"/>
+</groupbox>
+

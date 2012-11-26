@@ -78,3 +78,16 @@
 
 <!ENTITY  clearOnCloseSettings.label     "Settings…">
 <!ENTITY  clearOnCloseSettings.accesskey "t">
+
+<!ENTITY  reporting.label    "Help Improve &brandShortName;">
+
+<!-- LOCALIZATION NOTE (crashReports.label): Moved from chrome/browser/preferences/advanced.dtd -->
+<!ENTITY crashReports.label             "Crash reports">
+<!-- LOCALIZATION NOTE (crashReports.accesskey): Moved from chrome/browser/preferences/advanced.dtd -->
+<!ENTITY crashReports.accesskey         "o">
+
+<!-- LOCALIZATION NOTE (performanceData.label): Moved from chrome/browser/preferences/advanced.dtd -->
+<!ENTITY performanceData.label          "Performance data">
+<!-- LOCALIZATION NOTE (performanceData.accesskey): Moved from chrome/browser/preferences/advanced.dtd -->
+<!ENTITY performanceData.accesskey       "m">
+

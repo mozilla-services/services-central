@@ -52,10 +52,6 @@
               type="bool"/>
 #endif
 
-  <preference id="toolkit.telemetry.enabled"
-              name="toolkit.telemetry.enabled"
-              type="bool"/>
-
   <!-- Network tab -->
   <preference id="browser.cache.disk.capacity"
               name="browser.cache.disk.capacity"
@@ -201,15 +197,7 @@
             <description>&isDefault.label;</description>
           </deck>
         </hbox>
-#ifdef MOZ_CRASHREPORTER
-        <checkbox id="submitCrashesBox" flex="1"
-                  oncommand="gAdvancedPane.updateSubmitCrashes();"
-                  label="&submitCrashes.label;" accesskey="&submitCrashes.accesskey;"/>
 #endif
-#endif
-        <checkbox id="submitTelemetryBox" flex="1"
-                  preference="toolkit.telemetry.enabled"
-                  label="&submitTelemetry.label;" accesskey="&submitTelemetry.accesskey;"/>
       </groupbox>
     </tabpanel>
 

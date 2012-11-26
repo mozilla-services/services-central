@@ -32,10 +32,6 @@
 <!ENTITY setDefault.label                "Make &brandShortName; the default browser">
 <!ENTITY setDefault.accesskey            "d">
 <!ENTITY isDefault.label                 "&brandShortName; is currently your default browser">
-<!ENTITY submitCrashes.label             "Submit crash reports">
-<!ENTITY submitCrashes.accesskey         "S">
-<!ENTITY submitTelemetry.label           "Submit performance data">
-<!ENTITY submitTelemetry.accesskey       "P">
 
 <!ENTITY networkTab.label                "Network">
 

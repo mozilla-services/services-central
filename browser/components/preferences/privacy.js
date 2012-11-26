@@ -24,6 +24,10 @@ var gPrivacyPane = {
     this.updatePrivacyMicroControls();
     this.initAutoStartPrivateBrowsingObserver();
 
+#ifdef MOZ_CRASHREPORTER
+    this.initSubmitCrashes();
+#endif
+
     window.addEventListener("unload", this.removeASPBObserver.bind(this), false);
   },
 
@@ -435,8 +439,34 @@ var gPrivacyPane = {
   _updateSanitizeSettingsButton: function () {
     var settingsButton = document.getElementById("clearDataSettings");
     var sanitizeOnShutdownPref = document.getElementById("privacy.sanitize.sanitizeOnShutdown");
-    
-    settingsButton.disabled = !sanitizeOnShutdownPref.value;  	
-   }
+
+    settingsButton.disabled = !sanitizeOnShutdownPref.value;
+  },
+
+  /**
+   * Initialize the crash reports checkbox.
+   */
+  initSubmitCrashes: function () {
+    let checkbox = document.getElementById("submitCrashesBox");
+    try {
+      let cr = Components.classes["@mozilla.org/toolkit/crash-reporter;1"]
+                                 .getService(Components.interfaces.nsICrashReporter);
+      checkbox.checked = cr.submitReports;
+    } catch (e) {
+      checkbox.style.display = "none";
+    }
+  },
+
+  /**
+   * Store result of submit crashes checkbox change.
+   */
+  updateSubmitCrashes: function () {
+    let checkbox = document.getElementById("submitCrashesBox");
+    try {
+      let cr = Components.classes["@mozilla.org/toolkit/crash-reporter;1"]
+                                 .getService(Components.interfaces.nsICrashReporter);
+      cr.submitReports = checkbox.checked;
+    } catch (e) { }
+  },
 
 };
