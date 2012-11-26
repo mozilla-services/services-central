@@ -237,6 +237,15 @@
             label="&crashReports.label;"
             accesskey="&crashReports.accesskey;"/>
 #endif
+
+#ifdef MOZ_SERVICES_HEALTHREPORT_UI
+  <checkbox id="submitHealthReportBox"
+            flex="1"
+            oncommand="gPrivacyPane.updateSubmitHealthReport();"
+            label="&healthReport.label;"
+            accesskey="&healthReport.accesskey;"/>
+#endif
+
   <checkbox id="submitTelemetryBox"
             flex="1"
             preference="toolkit.telemetry.enabled"

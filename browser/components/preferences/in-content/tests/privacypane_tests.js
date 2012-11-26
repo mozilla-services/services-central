@@ -447,6 +447,28 @@ function test_privatebrowsing_ui(win) {
     "private browsing command should be enabled");
 }
 
+function test_healthreport_checkbox(win) {
+  let doc = win.document;
+
+  let checkbox = doc.getElementById("submitHealthReportBox");
+  ok(checkbox, "Could find health report checkbox.");
+  is(checkbox.checked, false, "Health report checkbox unchecked by default.");
+
+  let reporter = Cc["@mozilla.org/healthreport/service;1"]
+                   .getService(Ci.nsISupports)
+                   .wrappedJSObject
+                   .reporter;
+  ok(reporter, "Health reporter instance is available.");
+  is(reporter.dataSubmissionPolicyAccepted, false, "Health reporter says data policy not accepted by default.");
+
+  checkbox.checked = true;
+  checkbox.doCommand();
+  is(reporter.dataSubmissionPolicyAccepted, true, "Health reporter says data policy accepted after checking checkbox.");
+  checkbox.checked = false;
+  checkbox.doCommand();
+  is(reporter.dataSubmissionPolicyAccepted, false, "Health reporter says data policy rejected after unchecking checkbox.");
+}
+
 function enter_private_browsing(win) {
   let pbService = Cc["@mozilla.org/privatebrowsing;1"].
                   getService(Ci.nsIPrivateBrowsingService);

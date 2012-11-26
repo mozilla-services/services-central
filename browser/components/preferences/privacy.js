@@ -28,6 +28,10 @@ var gPrivacyPane = {
     this.initSubmitCrashes();
 #endif
 
+#ifdef MOZ_SERVICES_HEALTHREPORT_UI
+    this.initSubmitHealthReport();
+#endif
+
     window.addEventListener("unload", this.removeASPBObserver.bind(this), false);
   },
 
@@ -469,4 +473,51 @@ var gPrivacyPane = {
     } catch (e) { }
   },
 
+  /**
+   * Initialize the health report service reference and checkbox.
+   */
+  initSubmitHealthReport: function () {
+    let reporter = Components.classes["@mozilla.org/healthreport/service;1"]
+                                     .getService(Components.interfaces.nsISupports)
+                                     .wrappedJSObject
+                                     .reporter;
+
+    let checkbox = document.getElementById("submitHealthReportBox");
+
+    if (!reporter) {
+      checkbox.setAttribute("hidden", "true");
+      return;
+    }
+
+    checkbox.checked = reporter.dataSubmissionPolicyAccepted;
+  },
+
+  /**
+   * Update the health report policy acceptance with state from checkbox.
+   */
+  updateSubmitHealthReport: function () {
+    let reporter = Components.classes["@mozilla.org/healthreport/service;1"]
+                                     .getService(Components.interfaces.nsISupports)
+                                     .wrappedJSObject
+                                     .reporter;
+
+    if (!reporter) {
+      return;
+    }
+
+    let checkbox = document.getElementById("submitHealthReportBox");
+
+    let accepted = reporter.dataSubmissionPolicyAccepted;
+
+    if (checkbox.checked && !accepted) {
+      reporter.recordPolicyAcceptance("pref-checkbox-checked");
+      return;
+    }
+
+    if (!checkbox.checked && accepted) {
+      reporter.recordPolicyRejection("pref-checkbox-unchecked");
+      return;
+    }
+  },
 };
+

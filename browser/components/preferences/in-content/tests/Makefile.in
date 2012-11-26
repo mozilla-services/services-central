@@ -34,5 +34,9 @@ _BROWSER_FILES += \
     $(NULL)
 endif
 
+ifdef MOZ_SERVICES_HEALTHREPORT_UI
+	_BROWSER_FILES += browser_healthreport.js
+endif
+
 libs::	$(_BROWSER_FILES)
 	$(INSTALL) $(foreach f,$^,"$f") $(DEPTH)/_tests/testing/mochitest/browser/$(relativesrcdir)
